@@ -22,3 +22,8 @@ package-lock.json
 dist/
 build/
 
+# Test and documentation files (not for public repo)
+test-preview.html
+*.md
+!README.md
+
