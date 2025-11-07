@@ -2,10 +2,1686 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=BenTran_CV_Radar_Satellite.html">
-    <title>Redirecting to CV...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BÌNH (BEN) TRẦN - RF & Microwave Engineer | Interactive CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --radar-green: #00ff41;
+            --radar-dark-green: #00cc33;
+            --radar-bg: #0a0e27;
+            --radar-grid: #1a2e3a;
+            --radar-accent: #00d4ff;
+            --radar-warning: #ffaa00;
+            --text-primary: #e0f2fe;
+            --text-secondary: #94a3b8;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--radar-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Radar sweep overlay */
+        .radar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.1;
+        }
+        
+        .radar-sweep {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200vw;
+            height: 200vw;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 2px solid var(--radar-green);
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 350deg,
+                rgba(0, 255, 65, 0.3) 350deg,
+                rgba(0, 255, 65, 0.1) 360deg
+            );
+            animation: radarRotate 4s linear infinite;
+        }
+        
+        @keyframes radarRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header with satellite tracking */
+        .header {
+            position: relative;
+            padding: 40px 20px;
+            text-align: center;
+            border: 2px solid var(--radar-green);
+            border-radius: 10px;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--radar-green), var(--radar-accent), var(--radar-green));
+            border-radius: 10px;
+            z-index: -1;
+            opacity: 0.5;
+            animation: borderPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes borderPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+        
+        .name {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--radar-green);
+            text-shadow: 0 0 20px var(--radar-green), 0 0 40px rgba(0, 255, 65, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        
+        .title {
+            font-size: 1.8rem;
+            color: var(--radar-accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+        }
+        
+        .contact-item a {
+            color: var(--radar-accent);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--radar-green);
+            text-shadow: 0 0 10px var(--radar-green);
+        }
+        
+        /* Navigation with signal indicators */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            position: relative;
+            padding: 15px 30px;
+            background: rgba(26, 46, 58, 0.6);
+            border: 2px solid var(--radar-grid);
+            color: var(--text-primary);
+            font-family: 'Orbitron', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden;
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+        
+        .nav-btn.active {
+            border-color: var(--radar-green);
+            background: rgba(0, 255, 65, 0.1);
+            color: var(--radar-green);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+        }
+        
+        .nav-btn.active::after {
+            content: '●';
+            position: absolute;
+            right: 10px;
+            color: var(--radar-green);
+            animation: signalPulse 1s ease-in-out infinite;
+        }
+        
+        @keyframes signalPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        /* Main content sections */
+        .section {
+            display: none;
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid var(--radar-grid);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            color: var(--radar-green);
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 15px var(--radar-green);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--radar-green), transparent);
+        }
+        
+        /* Radar Display Canvas */
+        .radar-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 600px;
+            margin: 30px auto;
+            border: 3px solid var(--radar-green);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 65, 0.05) 0%, transparent 70%);
+            box-shadow: 
+                inset 0 0 100px rgba(0, 255, 65, 0.1),
+                0 0 50px rgba(0, 255, 65, 0.3);
+        }
+        
+        #radarCanvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        
+        /* Satellite Orbit Visualization */
+        .satellite-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 30px auto;
+            border: 2px solid var(--radar-grid);
+            border-radius: 10px;
+            background: rgba(10, 14, 39, 0.8);
+            overflow: hidden;
+        }
+        
+        #satelliteCanvas {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* RF Signal Waveform */
+        .signal-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            margin: 20px 0;
+            border: 1px solid var(--radar-grid);
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        #signalCanvas {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: rgba(26, 46, 58, 0.4);
+            border: 1px solid var(--radar-grid);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--radar-green);
+            transform: scaleY(0);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            border-color: var(--radar-green);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .card-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: var(--radar-accent);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .card-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--radar-green);
+            border-radius: 20px;
+            color: var(--radar-green);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .skill-tag:hover {
+            background: rgba(0, 255, 65, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+            transform: scale(1.05);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--radar-grid);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--radar-green);
+            box-shadow: 0 0 15px var(--radar-green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        
+        .timeline-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            color: var(--radar-accent);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-subtitle {
+            color: var(--radar-green);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .timeline-content li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .timeline-content li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--radar-green);
+            font-size: 0.7rem;
+        }
+        
+        /* Stats Display */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 25px;
+            background: rgba(26, 46, 58, 0.4);
+            border: 1px solid var(--radar-grid);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            border-color: var(--radar-green);
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
+        }
+        
+        .stat-value {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            color: var(--radar-green);
+            font-weight: 700;
+            text-shadow: 0 0 20px var(--radar-green);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Filter Buttons */
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: rgba(26, 46, 58, 0.6);
+            border: 1px solid var(--radar-grid);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            border-radius: 5px;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--radar-accent);
+            color: var(--radar-accent);
+        }
+        
+        .filter-btn.active {
+            background: rgba(0, 255, 65, 0.2);
+            border-color: var(--radar-green);
+            color: var(--radar-green);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .radar-container {
+                max-width: 100%;
+                height: 300px;
+            }
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--radar-grid);
+            border-top-color: var(--radar-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="BenTran_CV_Radar_Satellite.html">Interactive CV</a>...</p>
+    <div class="radar-overlay">
+        <div class="radar-sweep"></div>
+    </div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="name">BÌNH (BEN) TRẦN</h1>
+            <h2 class="title"> RF & Microwave Engineer | Satellite Communications </h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:thephoenixflix@gmail.com">ThePhoenixFlix@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <a href="https://github.com/ThePhoenixFlix" target="_blank">github.com/ThePhoenixFlix</a>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <a href="https://linkedin.com/in/benzatran" target="_blank">linkedin.com/in/benzatran</a>
+                </div>
+                <div class="contact-item">
+                    <span>🌍</span>
+                    <span> Vietnam </span>
+                </div>
+            </div>
+        </header>
+        
+        <nav class="nav">
+            <button class="nav-btn active" data-section="overview">OVERVIEW</button>
+            <button class="nav-btn" data-section="radar">RADAR DISPLAY</button>
+            <button class="nav-btn" data-section="satellite">SATELLITE TRACKING</button>
+            <button class="nav-btn" data-section="experience">EXPERIENCE</button>
+            <button class="nav-btn" data-section="skills">RF SKILLS</button>
+            <button class="nav-btn" data-section="education">EDUCATION</button>
+            <button class="nav-btn" data-section="awards">AWARDS & SCHOLARSHIPS</button>
+            <button class="nav-btn" data-section="honors">HONORS</button>
+            <button class="nav-btn" data-section="publications">PUBLICATIONS</button>
+            <button class="nav-btn" data-section="activities">ACTIVITIES & LEADERSHIP</button>
+        </nav>
+        
+        <!-- Overview Section -->
+        <section id="overview" class="section active">
+            <h2 class="section-title">MISSION OVERVIEW</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3 class="card-title">PROFESSIONAL SUMMARY</h3>
+                    <div class="card-content">
+                        PhD-level Electrical Engineer with extensive research in RF and satellite communications, 
+                        now re-entering the modern engineering field. Seeking project-based contracts to apply 
+                        foundational knowledge in simulation (HFSS, ADS) and hardware testing (LabVIEW), 
+                        refresh practical skills, and contribute to team success while expanding engineering capabilities.
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">CORE EXPERTISE</h3>
+                    <div class="card-content">
+                        <div class="skill-tag">Ansys HFSS</div>
+                        <div class="skill-tag">Keysight ADS</div>
+                        <div class="skill-tag">MATLAB</div>
+                        <div class="skill-tag">LabVIEW</div>
+                        <div class="skill-tag">RF Systems</div>
+                        <div class="skill-tag">Satellite Comm</div>
+                        <div class="skill-tag">Phased Arrays</div>
+                        <div class="skill-tag">Radome Design</div>
+                        <div class="skill-tag">Microwave Imaging</div>
+                        <div class="skill-tag">Material Characterization</div>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">5+</div>
+                    <div class="stat-label">Years Research Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">MS</div>
+                    <div class="stat-label">Education Level</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">IEEE Publications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Research Institutions</div>
+                </div>
+            </div>
+            <div class="signal-container">
+                <canvas id="overviewSignal"></canvas>
+            </div>
+        </section>
+        
+        <!-- Radar Display Section -->
+        <section id="radar" class="section">
+            <h2 class="section-title">RADAR SYSTEM DISPLAY</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 20px;">
+                Interactive radar visualization showing career progression and technical expertise
+            </p>
+            <div class="radar-container">
+                <canvas id="radarCanvas"></canvas>
+            </div>
+            <div class="content-grid" style="margin-top: 30px;">
+                <div class="card">
+                    <h3 class="card-title">RADAR CAPABILITIES</h3>
+                    <div class="card-content">
+                        <ul>
+                            <li>Monopulse Radar Systems</li>
+                            <li>Phased Array Antennas</li>
+                            <li>Beamforming & Steering</li>
+                            <li>Signal Processing</li>
+                            <li>Target Detection & Tracking</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">RF DESIGN EXPERTISE</h3>
+                    <div class="card-content">
+                        <ul>
+                            <li>Dielectric Resonator Antennas (DRA)</li>
+                            <li>High-Efficiency Array Design</li>
+                            <li>Radome Material Analysis</li>
+                            <li>Microwave Circuit Design</li>
+                            <li>Link Budget Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Satellite Tracking Section -->
+        <section id="satellite" class="section">
+            <h2 class="section-title">SATELLITE COMMUNICATION TRACKING</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 20px;">
+                Real-time satellite orbit visualization and communication link analysis
+            </p>
+            <div class="satellite-container">
+                <canvas id="satelliteCanvas"></canvas>
+            </div>
+            <div class="content-grid" style="margin-top: 30px;">
+                <div class="card">
+                    <h3 class="card-title">SATELLITE PROJECTS</h3>
+                    <div class="card-content">
+                        <strong style="color: var(--radar-accent);">High Efficiency DRA Array</strong><br>
+                        Led end-to-end design, HFSS simulation, and fabrication of a high-efficiency 
+                        dielectric resonator antenna array for satellite communications. Achieved 10% 
+                        improvement in aperture efficiency over existing models.
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">ACTIVE STEERABLE ARRAY</h3>
+                    <div class="card-content">
+                        Designed and optimized an active, electronically steerable antenna array, 
+                        including developing dual RHCP/LHCP circular polarization capabilities for 
+                        enhanced satellite link versatility.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2 class="section-title">CAREER TIMELINE</h2>
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">ALL POSITIONS</button>
+                <button class="filter-btn" data-filter="technical">TECHNICAL</button>
+                <button class="filter-btn" data-filter="leadership">LEADERSHIP</button>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-category="technical">
+                    <h3 class="timeline-title">Customer Service Partner Specialist</h3>
+                    <div class="timeline-subtitle">Concentrix | Ho Chi Minh City, Vietnam</div>
+                    <div class="timeline-date">2024 – 2025</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Consistently exceeded all contractual KPIs for customer resolution time and satisfaction</li>
+                            <li>Triaged and resolved complex technical customer issues in high-volume support environment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-category="technical">
+                    <h3 class="timeline-title">Quality Control & Assurance Specialist</h3>
+                    <div class="timeline-subtitle">Black Diamond & Kizik | USA</div>
+                    <div class="timeline-date">2022 – 2023</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Conducted statistical analysis (SPC) of test data to identify root causes of production failures</li>
+                            <li>Contributed to 20% decrease in warranty claims</li>
+                            <li>Managed quality records system for all test and design documentation</li>
+                            <li>Assisted in fabrication of custom test fixtures for production monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-category="leadership">
+                    <h3 class="timeline-title">Shift Lead / Operations Manager</h3>
+                    <div class="timeline-subtitle">AutoZone Inc. | USA</div>
+                    <div class="timeline-date">2018 – 2020</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Led all site operations as manager-on-duty, supervising and training team of 6</li>
+                            <li>Optimized daily workflows and implemented new inventory management process</li>
+                            <li>Drove data-informed process improvements by tracking and reporting operational KPIs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-category="technical">
+                    <h3 class="timeline-title">Research Assistant</h3>
+                    <div class="timeline-subtitle">Brigham Young University / Linear Signal Inc. | UT</div>
+                    <div class="timeline-date">2010 – 2014</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Led design, HFSS simulation, and fabrication of high-efficiency DRA array for satellite communications</li>
+                            <li>Developed and validated model for characterizing low-loss materials for Raytheon</li>
+                            <li>Owned high-temperature testing process for radome design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-category="technical">
+                    <h3 class="timeline-title">Research Assistant</h3>
+                    <div class="timeline-subtitle">University of Arkansas | Fayetteville, AR</div>
+                    <div class="timeline-date">2006 – 2010</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Applied microwave imaging methods for non-contact object detection</li>
+                            <li>Gained extensive hands-on experience in fabrication and testing of RF devices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title">RF & MICROWAVE SKILLS MATRIX</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3 class="card-title">RF & SATELLITE SYSTEMS</h3>
+                    <div class="card-content">
+                        <div class="skill-tag">Phased Array Antennas</div>
+                        <div class="skill-tag">Dielectric Resonator Antennas</div>
+                        <div class="skill-tag">Radome Design & Analysis</div>
+                        <div class="skill-tag">Microwave Imaging</div>
+                        <div class="skill-tag">Material Characterization</div>
+                        <div class="skill-tag">RF Device Design</div>
+                        <div class="skill-tag">Link Budget Analysis</div>
+                        <div class="skill-tag">Monopulse Radar</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">ENGINEERING SOFTWARE</h3>
+                    <div class="card-content">
+                        <div class="skill-tag">Ansys HFSS</div>
+                        <div class="skill-tag">Keysight ADS</div>
+                        <div class="skill-tag">CST Empire</div>
+                        <div class="skill-tag">MATLAB</div>
+                        <div class="skill-tag">LabVIEW</div>
+                        <div class="skill-tag">CAD</div>
+                        <div class="skill-tag">FEA</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">QUALITY & MANUFACTURING</h3>
+                    <div class="card-content">
+                        <div class="skill-tag">Quality Management Systems</div>
+                        <div class="skill-tag">Statistical Process Control</div>
+                        <div class="skill-tag">Design for Manufacturability</div>
+                        <div class="skill-tag">Root Cause Analysis</div>
+                        <div class="skill-tag">Process Validation</div>
+                        <div class="skill-tag">Failure Analysis</div>
+                    </div>
+                </div>
+            </div>
+            <div class="signal-container" style="margin-top: 30px;">
+                <canvas id="skillsSignal"></canvas>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <h2 class="section-title">EDUCATION & AWARDS</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3 class="card-title">EDUCATION</h3>
+                    <div class="card-content">
+                        <p style="margin-bottom: 20px;">
+                            <strong style="color: var(--radar-accent); font-size: 1.1rem;">PhD Studies, Electrical & Computer Engineering (Incomplete)</strong><br>
+                            Brigham Young University | Provo, UT<br>
+                            <em style="color: var(--text-secondary);">2010 - Incomplete</em>
+                        </p>
+                        <p style="margin-bottom: 20px;">
+                            <strong style="color: var(--radar-accent); font-size: 1.1rem;">MS, Electrical Engineering</strong><br>
+                            University of Arkansas | Fayetteville, AR<br>
+                            <em style="color: var(--text-secondary);">2008 - 2010</em>
+                        </p>
+                        <p>
+                            <strong style="color: var(--radar-accent); font-size: 1.1rem;">BS, Electrical Engineering & Mathematics</strong><br>
+                            University of Arkansas | Fayetteville, AR<br>
+                            <em style="color: var(--text-secondary);">2004 - 2008</em>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">AWARDS & SCHOLARSHIPS</h3>
+                    <div class="card-content">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">🏆 PhD Fellowship - BYU</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">📡 MTT-S IEEE Scholarship</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">🎓 Research Grant - Honors College</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">⭐ FIES Academic Scholarship</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">⭐ MLK Academic Scholarship</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">🏅 ICT Outstanding Award</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">📜 Poster Stone Coop Scholarship</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">🌟 National Recognition Awards</li>
+                            <li style="padding: 8px 0;">📋 Dean's List & Chancellor's List</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Awards & Scholarships Section -->
+        <section id="awards" class="section">
+            <h2 class="section-title">AWARDS & SCHOLARSHIPS</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3 class="card-title">SCHOLARSHIPS</h3>
+                    <div class="card-content">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🏆 PhD Fellowship</strong><br>
+                                <em style="color: var(--text-secondary);">Brigham Young University</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">📡 MTT-S IEEE Scholarship</strong><br>
+                                <em style="color: var(--text-secondary);">Microwave Theory and Techniques Society</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🎓 Research Grant - Honors College</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">⭐ FIES Academic Scholarship</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">⭐ MLK Academic Scholarship</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong style="color: var(--radar-accent);">📜 Poster Stone Coop Scholarship</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">AWARDS</h3>
+                    <div class="card-content">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🏅 ICT Outstanding Award</strong><br>
+                                <em style="color: var(--text-secondary);">Information and Communication Technology</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🌟 National Recognition Awards</strong><br>
+                                <em style="color: var(--text-secondary);">Honors College</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">📋 Dean's List</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong style="color: var(--radar-accent);">📋 Chancellor's List</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Honors Section -->
+        <section id="honors" class="section">
+            <h2 class="section-title">HONORS</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3 class="card-title">ACADEMIC HONORS</h3>
+                    <div class="card-content">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🏆 Dean's List</strong><br>
+                                <em style="color: var(--text-secondary);">Multiple semesters - University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🏆 Chancellor's List</strong><br>
+                                <em style="color: var(--text-secondary);">Multiple semesters - University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🌟 National Recognition Awards</strong><br>
+                                <em style="color: var(--text-secondary);">Honors College - University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🎓 Honors College</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🏛️ Ambassador of Good Will</strong><br>
+                                <em style="color: var(--text-secondary);">Arkansas State Governor</em>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong style="color: var(--radar-accent);">📚 Honor Societies</strong><br>
+                                <em style="color: var(--text-secondary);">Gamma Beta Phi, NSCS, HKN (Eta Kappa Nu)</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">PROFESSIONAL HONORS</h3>
+                    <div class="card-content">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🏅 ICT Outstanding Award</strong><br>
+                                <em style="color: var(--text-secondary);">Information and Communication Technology</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">📡 MTT-S IEEE Recognition</strong><br>
+                                <em style="color: var(--text-secondary);">Microwave Theory and Techniques Society</em>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong style="color: var(--radar-accent);">📜 Research Excellence</strong><br>
+                                <em style="color: var(--text-secondary);">Brigham Young University</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <h2 class="section-title">PUBLICATIONS</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3 class="card-title">JOURNAL PUBLICATIONS</h3>
+                    <div class="card-content">
+                        <p style="margin-bottom: 20px; line-height: 1.8;">
+                            <strong style="color: var(--radar-accent); font-size: 1.1rem;">"High Efficiency Dielectric Resonator Antenna Array Feeds for Satellite Communications."</strong><br>
+                            <em style="color: var(--text-secondary);">IEEE Transactions on Antennas & Propagation (Communication Section), 2014.</em>
+                        </p>
+                        <p style="line-height: 1.8;">
+                            <strong style="color: var(--radar-accent); font-size: 1.1rem;">"Broadband, High Efficiency Dielectric Resonator Antenna for Satellite Communications."</strong><br>
+                            <em style="color: var(--text-secondary);">IEEE APS-URSI Symposium, 2013.</em>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">CONFERENCE PUBLICATIONS</h3>
+                    <div class="card-content">
+                        <p style="margin-bottom: 20px; line-height: 1.8;">
+                            <strong style="color: var(--radar-accent); font-size: 1.1rem;">IEEE APS-URSI Symposium</strong><br>
+                            <em style="color: var(--text-secondary);">2013 - Presented research on broadband, high efficiency dielectric resonator antenna for satellite communications.</em>
+                        </p>
+                        <p style="line-height: 1.8;">
+                            <strong style="color: var(--radar-accent); font-size: 1.1rem;">IEEE Transactions on Antennas & Propagation</strong><br>
+                            <em style="color: var(--text-secondary);">2014 - Published peer-reviewed article on high efficiency DRA array feeds for satellite communications.</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Activities & Leadership Section -->
+        <section id="activities" class="section">
+            <h2 class="section-title">ACTIVITIES & LEADERSHIP</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3 class="card-title">LEADERSHIP ROLES</h3>
+                    <div class="card-content">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">👔 Shift Lead / Operations Manager</strong><br>
+                                <em style="color: var(--text-secondary);">AutoZone Inc. (2018-2020)</em><br>
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Led all site operations as manager-on-duty, supervising and training a team of 6. Optimized daily workflows and implemented new inventory management processes.</span>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🔬 Research Team Lead</strong><br>
+                                <em style="color: var(--text-secondary);">Brigham Young University (2010-2014)</em><br>
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Led design, simulation, and fabrication of high-efficiency DRA array for satellite communications. Managed research projects and collaborated with industry partners.</span>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong style="color: var(--radar-accent);">📊 Quality Control Specialist</strong><br>
+                                <em style="color: var(--text-secondary);">Black Diamond & Kizik (2022-2023)</em><br>
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Managed quality records system and conducted statistical analysis to identify root causes of production failures, contributing to 20% decrease in warranty claims.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">COMMUNITY ACTIVITIES</h3>
+                    <div class="card-content">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🌍 Presenter, Teacher, Mentor</strong><br>
+                                <em style="color: var(--text-secondary);">International Culture Team (2005-2010)</em><br>
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Dynamic team bringing the world to campus, breaking stereotypes, and developing a community that seeks to learn from each other.</span>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🤝 Mentor, Coordinator</strong><br>
+                                <em style="color: var(--text-secondary);">Cross Culture Mentor (2007-2010)</em><br>
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Assisted new international students in adjusting academically, culturally, and socially to the United States and the University of Arkansas.</span>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">❤️ Outreach Committee Chair</strong><br>
+                                <em style="color: var(--text-secondary);">NWA American Red Cross (2009)</em><br>
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Helped fulfill the American Red Cross mission to prevent and alleviate human suffering in the face of emergencies.</span>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong style="color: var(--radar-accent);">📡 Student Council Member</strong><br>
+                                <em style="color: var(--text-secondary);">Graduate Student Society (BYU-GSS) (2010)</em><br>
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Represented graduate students, enriched graduate student culture, and encouraged presentation of scholarly and creative work.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">PROFESSIONAL ACTIVITIES</h3>
+                    <div class="card-content">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">📡 IEEE Member</strong><br>
+                                <em style="color: var(--text-secondary);">Microwave Theory and Techniques Society (MTT-S)</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🔬 Research Publications</strong><br>
+                                <em style="color: var(--text-secondary);">IEEE Transactions on Antennas & Propagation, IEEE APS-URSI Symposium</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🏆 Academic Excellence</strong><br>
+                                <em style="color: var(--text-secondary);">Dean's List, Chancellor's List, Honors College</em>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong style="color: var(--radar-accent);">🎓 Research Collaboration</strong><br>
+                                <em style="color: var(--text-secondary);">Collaborated with Raytheon on radome material characterization project</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Global variables
+        let satelliteAnimationId = null;
+        let drawSatellite = null; // Will be assigned later
+        
+        // Navigation
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.section');
+        
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetSection = btn.dataset.section;
+                
+                navButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                sections.forEach(s => s.classList.remove('active'));
+                const activeSection = document.getElementById(targetSection);
+                activeSection.classList.add('active');
+                
+                // Start satellite animation if satellite section is active
+                if (targetSection === 'satellite') {
+                    setTimeout(() => {
+                        if (window.startSatelliteAnimation) {
+                            window.startSatelliteAnimation();
+                        } else if (drawSatellite) {
+                            drawSatellite();
+                        }
+                    }, 150);
+                } else {
+                    // Stop animation when leaving satellite section
+                    if (window.stopSatelliteAnimation) {
+                        window.stopSatelliteAnimation();
+                    }
+                }
+            });
+        });
+        
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                
+                timelineItems.forEach(item => {
+                    const category = item.dataset.category;
+                    if (filter === 'all' || category.includes(filter)) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.style.opacity = '1', 10);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+        
+        // Radar Canvas
+        const radarCanvas = document.getElementById('radarCanvas');
+        const radarCtx = radarCanvas.getContext('2d');
+        
+        function resizeCanvas(canvas) {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            // Ensure minimum dimensions
+            const width = Math.max(rect.width || 600, 400);
+            const height = Math.max(rect.height || 600, 400);
+            canvas.width = width;
+            canvas.height = height;
+        }
+        
+        resizeCanvas(radarCanvas);
+        window.addEventListener('resize', () => resizeCanvas(radarCanvas));
+        
+        let radarAngle = 0;
+        
+        // Career data points on radar
+        const careerPoints = [
+            { angle: 45, distance: 0.3, label: 'Research (U.Ark)', color: '#00ff41' },
+            { angle: 90, distance: 0.5, label: 'Research (BYU)', color: '#00d4ff' },
+            { angle: 180, distance: 0.4, label: 'Operations', color: '#ffaa00' },
+            { angle: 270, distance: 0.6, label: 'Quality', color: '#00ff41' },
+            { angle: 315, distance: 0.7, label: 'Support', color: '#00d4ff' }
+        ];
+        
+        function drawRadar() {
+            // Resize if needed
+            resizeCanvas(radarCanvas);
+            
+            // Ensure canvas has valid dimensions
+            if (radarCanvas.width === 0 || radarCanvas.height === 0) {
+                radarCanvas.width = 600;
+                radarCanvas.height = 600;
+            }
+            
+            // Recalculate center and radius on each frame
+            const radarCenter = { 
+                x: radarCanvas.width / 2, 
+                y: radarCanvas.height / 2 
+            };
+            const calculatedRadius = Math.min(radarCanvas.width, radarCanvas.height) / 2 - 20;
+            const radarRadius = Math.max(calculatedRadius, 50); // Ensure minimum radius of 50
+            
+            radarCtx.clearRect(0, 0, radarCanvas.width, radarCanvas.height);
+            
+            // Draw concentric circles
+            for (let i = 1; i <= 5; i++) {
+                const circleRadius = (radarRadius / 5) * i;
+                if (circleRadius > 0) {
+                    radarCtx.strokeStyle = 'rgba(0, 255, 65, 0.3)';
+                    radarCtx.lineWidth = 1;
+                    radarCtx.beginPath();
+                    radarCtx.arc(radarCenter.x, radarCenter.y, circleRadius, 0, Math.PI * 2);
+                    radarCtx.stroke();
+                }
+            }
+            
+            // Draw grid lines
+            for (let i = 0; i < 8; i++) {
+                const angle = (Math.PI * 2 * i) / 8;
+                radarCtx.strokeStyle = 'rgba(0, 255, 65, 0.2)';
+                radarCtx.lineWidth = 1;
+                radarCtx.beginPath();
+                radarCtx.moveTo(radarCenter.x, radarCenter.y);
+                radarCtx.lineTo(
+                    radarCenter.x + Math.cos(angle) * radarRadius,
+                    radarCenter.y + Math.sin(angle) * radarRadius
+                );
+                radarCtx.stroke();
+            }
+            
+            // Draw career points
+            careerPoints.forEach(point => {
+                const x = radarCenter.x + Math.cos((point.angle * Math.PI) / 180) * radarRadius * point.distance;
+                const y = radarCenter.y + Math.sin((point.angle * Math.PI) / 180) * radarRadius * point.distance;
+                
+                // Glow effect
+                const gradient = radarCtx.createRadialGradient(x, y, 0, x, y, 15);
+                gradient.addColorStop(0, point.color);
+                gradient.addColorStop(1, 'transparent');
+                radarCtx.fillStyle = gradient;
+                radarCtx.fillRect(x - 15, y - 15, 30, 30);
+                
+                // Point
+                radarCtx.fillStyle = point.color;
+                radarCtx.beginPath();
+                radarCtx.arc(x, y, 5, 0, Math.PI * 2);
+                radarCtx.fill();
+                
+                // Label
+                radarCtx.fillStyle = '#e0f2fe';
+                radarCtx.font = '12px Orbitron';
+                radarCtx.fillText(point.label, x + 10, y - 10);
+            });
+            
+            // Draw sweeping line
+            radarAngle += 0.02;
+            const sweepAngle = radarAngle;
+            radarCtx.strokeStyle = 'rgba(0, 255, 65, 0.8)';
+            radarCtx.lineWidth = 2;
+            radarCtx.beginPath();
+            radarCtx.moveTo(radarCenter.x, radarCenter.y);
+            radarCtx.lineTo(
+                radarCenter.x + Math.cos(sweepAngle) * radarRadius,
+                radarCenter.y + Math.sin(sweepAngle) * radarRadius
+            );
+            radarCtx.stroke();
+            
+            // Sweep gradient
+            if (radarRadius > 0) {
+                const sweepGradient = radarCtx.createLinearGradient(
+                    radarCenter.x, radarCenter.y,
+                    radarCenter.x + Math.cos(sweepAngle) * radarRadius,
+                    radarCenter.y + Math.sin(sweepAngle) * radarRadius
+                );
+                sweepGradient.addColorStop(0, 'rgba(0, 255, 65, 0.3)');
+                sweepGradient.addColorStop(1, 'transparent');
+                radarCtx.fillStyle = sweepGradient;
+                radarCtx.beginPath();
+                radarCtx.moveTo(radarCenter.x, radarCenter.y);
+                radarCtx.arc(radarCenter.x, radarCenter.y, radarRadius, sweepAngle - 0.1, sweepAngle + 0.1);
+                radarCtx.closePath();
+                radarCtx.fill();
+            }
+            
+            requestAnimationFrame(drawRadar);
+        }
+        
+        drawRadar();
+        
+        // Satellite Canvas
+        const satelliteCanvas = document.getElementById('satelliteCanvas');
+        const satelliteCtx = satelliteCanvas.getContext('2d');
+        
+        let satelliteAngle = 0;
+        
+        function resizeSatelliteCanvas() {
+            const rect = satelliteCanvas.parentElement.getBoundingClientRect();
+            // Ensure minimum dimensions
+            const width = Math.max(rect.width || 800, 400);
+            const height = Math.max(rect.height || 400, 300);
+            satelliteCanvas.width = width;
+            satelliteCanvas.height = height;
+        }
+        
+        // Initialize canvas with default size
+        resizeSatelliteCanvas();
+        
+        // Draw initial frame immediately
+        function drawInitialFrame() {
+            if (satelliteCanvas.width === 0 || satelliteCanvas.height === 0) {
+                satelliteCanvas.width = 800;
+                satelliteCanvas.height = 400;
+            }
+            
+            const satCenter = { 
+                x: satelliteCanvas.width / 2, 
+                y: satelliteCanvas.height / 2 
+            };
+            const orbitRadius = Math.min(satelliteCanvas.width, satelliteCanvas.height) / 3;
+            const earthRadius = Math.min(80, orbitRadius * 0.3);
+            
+            satelliteCtx.clearRect(0, 0, satelliteCanvas.width, satelliteCanvas.height);
+            
+            // Draw Earth
+            const earthGradient = satelliteCtx.createRadialGradient(
+                satCenter.x, satCenter.y, 0, 
+                satCenter.x, satCenter.y, earthRadius
+            );
+            earthGradient.addColorStop(0, '#2a5a6c');
+            earthGradient.addColorStop(0.5, '#1a4a5c');
+            earthGradient.addColorStop(1, '#0a2e3a');
+            satelliteCtx.fillStyle = earthGradient;
+            satelliteCtx.beginPath();
+            satelliteCtx.arc(satCenter.x, satCenter.y, earthRadius, 0, Math.PI * 2);
+            satelliteCtx.fill();
+            
+            // Draw orbit path
+            satelliteCtx.strokeStyle = 'rgba(0, 255, 65, 0.4)';
+            satelliteCtx.lineWidth = 2;
+            satelliteCtx.setLineDash([8, 8]);
+            satelliteCtx.beginPath();
+            satelliteCtx.ellipse(
+                satCenter.x, satCenter.y, 
+                orbitRadius, orbitRadius * 0.6, 
+                0, 0, Math.PI * 2
+            );
+            satelliteCtx.stroke();
+            satelliteCtx.setLineDash([]);
+        }
+        
+        // Draw initial frame
+        drawInitialFrame();
+        
+        drawSatellite = function() {
+            // Resize if needed
+            resizeSatelliteCanvas();
+            
+            // Ensure canvas has valid dimensions
+            if (satelliteCanvas.width === 0 || satelliteCanvas.height === 0) {
+                satelliteCanvas.width = 800;
+                satelliteCanvas.height = 400;
+            }
+            
+            const satCenter = { 
+                x: satelliteCanvas.width / 2, 
+                y: satelliteCanvas.height / 2 
+            };
+            const orbitRadius = Math.min(satelliteCanvas.width, satelliteCanvas.height) / 3;
+            const earthRadius = Math.min(80, orbitRadius * 0.3);
+            
+            satelliteCtx.clearRect(0, 0, satelliteCanvas.width, satelliteCanvas.height);
+            
+            // Draw Earth
+            const earthGradient = satelliteCtx.createRadialGradient(
+                satCenter.x, satCenter.y, 0, 
+                satCenter.x, satCenter.y, earthRadius
+            );
+            earthGradient.addColorStop(0, '#2a5a6c');
+            earthGradient.addColorStop(0.5, '#1a4a5c');
+            earthGradient.addColorStop(1, '#0a2e3a');
+            satelliteCtx.fillStyle = earthGradient;
+            satelliteCtx.beginPath();
+            satelliteCtx.arc(satCenter.x, satCenter.y, earthRadius, 0, Math.PI * 2);
+            satelliteCtx.fill();
+            
+            // Earth outline
+            satelliteCtx.strokeStyle = 'rgba(0, 212, 255, 0.3)';
+            satelliteCtx.lineWidth = 1;
+            satelliteCtx.beginPath();
+            satelliteCtx.arc(satCenter.x, satCenter.y, earthRadius, 0, Math.PI * 2);
+            satelliteCtx.stroke();
+            
+            // Draw orbit path
+            satelliteCtx.strokeStyle = 'rgba(0, 255, 65, 0.4)';
+            satelliteCtx.lineWidth = 2;
+            satelliteCtx.setLineDash([8, 8]);
+            satelliteCtx.beginPath();
+            satelliteCtx.ellipse(
+                satCenter.x, satCenter.y, 
+                orbitRadius, orbitRadius * 0.6, 
+                0, 0, Math.PI * 2
+            );
+            satelliteCtx.stroke();
+            satelliteCtx.setLineDash([]);
+            
+            // Draw satellite
+            satelliteAngle += 0.015;
+            const satX = satCenter.x + Math.cos(satelliteAngle) * orbitRadius;
+            const satY = satCenter.y + Math.sin(satelliteAngle) * orbitRadius * 0.6;
+            
+            // Communication link (pulsing)
+            const linkOpacity = 0.3 + Math.sin(satelliteAngle * 3) * 0.2;
+            satelliteCtx.strokeStyle = `rgba(0, 212, 255, ${linkOpacity})`;
+            satelliteCtx.lineWidth = 2;
+            satelliteCtx.beginPath();
+            satelliteCtx.moveTo(satCenter.x, satCenter.y);
+            satelliteCtx.lineTo(satX, satY);
+            satelliteCtx.stroke();
+            
+            // Communication link glow
+            const linkGradient = satelliteCtx.createLinearGradient(
+                satCenter.x, satCenter.y, satX, satY
+            );
+            linkGradient.addColorStop(0, 'rgba(0, 212, 255, 0.1)');
+            linkGradient.addColorStop(0.5, 'rgba(0, 212, 255, 0.3)');
+            linkGradient.addColorStop(1, 'rgba(0, 212, 255, 0.1)');
+            satelliteCtx.strokeStyle = linkGradient;
+            satelliteCtx.lineWidth = 4;
+            satelliteCtx.beginPath();
+            satelliteCtx.moveTo(satCenter.x, satCenter.y);
+            satelliteCtx.lineTo(satX, satY);
+            satelliteCtx.stroke();
+            
+            // Satellite glow
+            const satGradient = satelliteCtx.createRadialGradient(satX, satY, 0, satX, satY, 25);
+            satGradient.addColorStop(0, 'rgba(0, 212, 255, 0.8)');
+            satGradient.addColorStop(0.5, 'rgba(0, 212, 255, 0.3)');
+            satGradient.addColorStop(1, 'transparent');
+            satelliteCtx.fillStyle = satGradient;
+            satelliteCtx.fillRect(satX - 25, satY - 25, 50, 50);
+            
+            // Satellite body (main)
+            satelliteCtx.fillStyle = '#00d4ff';
+            satelliteCtx.fillRect(satX - 10, satY - 5, 20, 10);
+            
+            // Satellite solar panels
+            satelliteCtx.fillStyle = '#00aacc';
+            satelliteCtx.fillRect(satX - 15, satY - 3, 30, 6);
+            
+            // Satellite details
+            satelliteCtx.fillStyle = '#00ff41';
+            satelliteCtx.fillRect(satX - 2, satY - 2, 4, 4);
+            
+            // Signal waves (expanding)
+            const waveTime = Date.now() * 0.001;
+            for (let i = 1; i <= 4; i++) {
+                const waveRadius = 20 + (i * 15) + Math.sin(waveTime * 2) * 5;
+                const waveOpacity = (0.6 / i) * (0.5 + Math.sin(waveTime * 3) * 0.5);
+                satelliteCtx.strokeStyle = `rgba(0, 255, 65, ${waveOpacity})`;
+                satelliteCtx.lineWidth = 2;
+                satelliteCtx.beginPath();
+                satelliteCtx.arc(satX, satY, waveRadius, 0, Math.PI * 2);
+                satelliteCtx.stroke();
+            }
+            
+            // Orbit trail
+            const trailPoints = 20;
+            for (let i = 0; i < trailPoints; i++) {
+                const trailAngle = satelliteAngle - (i * 0.05);
+                const trailX = satCenter.x + Math.cos(trailAngle) * orbitRadius;
+                const trailY = satCenter.y + Math.sin(trailAngle) * orbitRadius * 0.6;
+                const trailOpacity = (trailPoints - i) / trailPoints * 0.3;
+                satelliteCtx.fillStyle = `rgba(0, 212, 255, ${trailOpacity})`;
+                satelliteCtx.beginPath();
+                satelliteCtx.arc(trailX, trailY, 2, 0, Math.PI * 2);
+                satelliteCtx.fill();
+            }
+            
+            // Check if section is visible before continuing animation
+            const satelliteSection = document.getElementById('satellite');
+            if (satelliteSection && satelliteSection.classList.contains('active')) {
+                satelliteAnimationId = requestAnimationFrame(drawSatellite);
+            }
+        }
+        
+        // Function to start satellite animation (defined globally)
+        window.startSatelliteAnimation = function() {
+            if (!satelliteAnimationId) {
+                resizeSatelliteCanvas();
+                drawSatellite();
+            }
+        };
+        
+        // Function to stop satellite animation (defined globally)
+        window.stopSatelliteAnimation = function() {
+            if (satelliteAnimationId) {
+                cancelAnimationFrame(satelliteAnimationId);
+                satelliteAnimationId = null;
+            }
+        };
+        
+        // Initialize satellite canvas on window load
+        window.addEventListener('resize', () => {
+            resizeSatelliteCanvas();
+            if (satelliteAnimationId) {
+                // Redraw immediately on resize
+                drawSatellite();
+            }
+        });
+        
+        // Start animation when section becomes visible
+        const satelliteSection = document.getElementById('satellite');
+        if (satelliteSection) {
+            // Use MutationObserver to watch for class changes
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        if (satelliteSection.classList.contains('active')) {
+                            setTimeout(() => {
+                                if (window.startSatelliteAnimation) {
+                                    window.startSatelliteAnimation();
+                                }
+                            }, 50);
+                        } else {
+                            if (window.stopSatelliteAnimation) {
+                                window.stopSatelliteAnimation();
+                            }
+                        }
+                    }
+                });
+            });
+            
+            observer.observe(satelliteSection, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
+            
+            // Start if already visible
+            if (satelliteSection.classList.contains('active')) {
+                setTimeout(() => {
+                    if (window.startSatelliteAnimation) {
+                        window.startSatelliteAnimation();
+                    }
+                }, 100);
+            }
+        }
+        
+        // RF Signal Waveforms
+        function drawSignal(canvasId, frequency = 1, amplitude = 1) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            function resize() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+            }
+            
+            resize();
+            window.addEventListener('resize', resize);
+            
+            let time = 0;
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.strokeStyle = '#00ff41';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                
+                const centerY = canvas.height / 2;
+                const samples = canvas.width;
+                
+                for (let x = 0; x < samples; x++) {
+                    const t = (x / samples) * Math.PI * 4 + time;
+                    const y = centerY + Math.sin(t * frequency) * amplitude * 30;
+                    
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                
+                ctx.stroke();
+                
+                // Add noise/signal modulation
+                ctx.strokeStyle = '#00d4ff';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                
+                for (let x = 0; x < samples; x++) {
+                    const t = (x / samples) * Math.PI * 8 + time * 2;
+                    const y = centerY + Math.sin(t * frequency * 2) * amplitude * 15;
+                    
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                
+                ctx.stroke();
+                
+                time += 0.05;
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+        
+        drawSignal('overviewSignal', 1, 1);
+        drawSignal('skillsSignal', 1.5, 0.8);
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
