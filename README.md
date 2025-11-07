@@ -1,6 +1,10 @@
-# Interactive RF & Microwave Engineer CV
+# The Phoenix Flix - Interactive CV
 
-A high-tech interactive CV with radar and satellite communication themes, showcasing expertise in RF & Microwave Engineering.
+A high-tech interactive CV with radar and satellite communication themes, showcasing expertise in Satellite Communications.
+
+## 🌐 Live Website
+
+**Visit:** [thephoenixflix.github.io](https://thephoenixflix.github.io)
 
 ## Features
 
@@ -16,29 +20,37 @@ A high-tech interactive CV with radar and satellite communication themes, showca
 - Canvas API for animations
 - No external dependencies (except Google Fonts)
 
-## View Online
-
-Open `BenTran_CV_Radar_Satellite.html` in any modern web browser.
-
 ## Sections
 
 - Overview
 - Radar Display
 - Satellite Tracking
-- Experience
+- Phoenix Experience
 - RF Skills
-- Education
-- Awards & Scholarships
-- Honors
+- Education & Awards
+- Honors & Research
 - Publications
 - Activities & Leadership
 
+## GitHub Pages Setup
+
+This repository is configured for GitHub Pages. The site is automatically deployed from the `main` branch.
+
+### To Deploy:
+
+1. Push all files to the `main` branch
+2. Go to repository Settings → Pages
+3. Select source: "Deploy from a branch"
+4. Select branch: `main` / `root`
+5. Click Save
+6. Your site will be live at: `https://thephoenixflix.github.io`
+
 ## Author
 
-**Bình (Ben) Trần**
-- RF & Microwave Engineer
+**The Phoenix Flix**
 - Satellite Communications Specialist
-- GitHub: [@PhoenixWeaver](https://github.com/PhoenixWeaver)
+- GitHub: [@thephoenixflix](https://github.com/thephoenixflix)
+- Website: [thephoenixflix.github.io](https://thephoenixflix.github.io)
 - Email: ThePhoenixFlix@gmail.com
 
 ## License

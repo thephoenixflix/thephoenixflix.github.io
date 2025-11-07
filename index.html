@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BÌNH (BEN) TRẦN - RF & Microwave Engineer | Interactive CV</title>
+    <title>The Phoenix Flix - Satellite Communications | Interactive CV</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
         
@@ -380,6 +380,23 @@
             line-height: 1.8;
         }
         
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--radar-grid);
+            transition: all 0.3s;
+            opacity: 0.9;
+        }
+        
+        .card:hover .card-image {
+            border-color: var(--radar-green);
+            opacity: 1;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+        
         .skill-tag {
             display: inline-block;
             padding: 8px 15px;
@@ -597,8 +614,8 @@
     
     <div class="container">
         <header class="header">
-            <h1 class="name">BÌNH (BEN) TRẦN</h1>
-            <h2 class="title"> RF & Microwave Engineer | Satellite Communications </h2>
+            <h1 class="name">The <span style="color: #ff0000; font-weight: bold;">Phoenix</span> <span style="color: #00d4ff; font-style: italic;">Flix</span></h1>
+            <h2 class="title"> Satellite Communications </h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <span>📧</span>
@@ -610,11 +627,11 @@
                 </div>
                 <div class="contact-item">
                     <span>💼</span>
-                    <a href="https://linkedin.com/in/benzatran" target="_blank">linkedin.com/in/benzatran</a>
+                    <a href="phoenixflix.vercel.app" target="_blank">phoenixflix.vercel.app</a>
                 </div>
                 <div class="contact-item">
                     <span>🌍</span>
-                    <span> Vietnam </span>
+                    <span> Phoebus </span>
                 </div>
             </div>
         </header>
@@ -625,9 +642,8 @@
             <button class="nav-btn" data-section="satellite">SATELLITE TRACKING</button>
             <button class="nav-btn" data-section="experience">EXPERIENCE</button>
             <button class="nav-btn" data-section="skills">RF SKILLS</button>
-            <button class="nav-btn" data-section="education">EDUCATION</button>
-            <button class="nav-btn" data-section="awards">AWARDS & SCHOLARSHIPS</button>
-            <button class="nav-btn" data-section="honors">HONORS</button>
+            <button class="nav-btn" data-section="education">EDUCATION & AWARDS</button>
+            <button class="nav-btn" data-section="honors">HONORS & RESEARCH</button>
             <button class="nav-btn" data-section="publications">PUBLICATIONS</button>
             <button class="nav-btn" data-section="activities">ACTIVITIES & LEADERSHIP</button>
         </nav>
@@ -637,6 +653,7 @@
             <h2 class="section-title">MISSION OVERVIEW</h2>
             <div class="content-grid">
                 <div class="card">
+                    <img src="moutains.jpg" alt="Professional Summary" class="card-image">
                     <h3 class="card-title">PROFESSIONAL SUMMARY</h3>
                     <div class="card-content">
                         PhD-level Electrical Engineer with extensive research in RF and satellite communications, 
@@ -646,6 +663,7 @@
                     </div>
                 </div>
                 <div class="card">
+                    <img src="AR.jpg" alt="Core Expertise" class="card-image">
                     <h3 class="card-title">CORE EXPERTISE</h3>
                     <div class="card-content">
                         <div class="skill-tag">Ansys HFSS</div>
@@ -690,6 +708,9 @@
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 20px;">
                 Interactive radar visualization showing career progression and technical expertise
             </p>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="Radar.jpg" alt="Radar System" class="card-image" style="max-width: 600px; margin: 0 auto; display: block;">
+            </div>
             <div class="radar-container">
                 <canvas id="radarCanvas"></canvas>
             </div>
@@ -753,70 +774,46 @@
         
         <!-- Experience Section -->
         <section id="experience" class="section">
-            <h2 class="section-title">CAREER TIMELINE</h2>
-            <div class="filter-group">
-                <button class="filter-btn active" data-filter="all">ALL POSITIONS</button>
-                <button class="filter-btn" data-filter="technical">TECHNICAL</button>
-                <button class="filter-btn" data-filter="leadership">LEADERSHIP</button>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item" data-category="technical">
-                    <h3 class="timeline-title">Customer Service Partner Specialist</h3>
-                    <div class="timeline-subtitle">Concentrix | Ho Chi Minh City, Vietnam</div>
-                    <div class="timeline-date">2024 – 2025</div>
-                    <div class="timeline-content">
-                        <ul>
-                            <li>Consistently exceeded all contractual KPIs for customer resolution time and satisfaction</li>
-                            <li>Triaged and resolved complex technical customer issues in high-volume support environment</li>
-                        </ul>
+            <h2 class="section-title">PHOENIX EXPERIENCE</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <img src="AR.jpg" alt="International Culture Team" class="card-image">
+                    <h3 class="card-title">Presenter, Teacher, Mentor</h3>
+                    <div class="card-content">
+                        <strong style="color: var(--radar-accent);">International Culture Team</strong>
+                        <p style="margin-top: 10px; line-height: 1.8;">
+                            The International Culture Team (ICT) is a dynamic team of international students, scholars, their spouses, as well as, American students who have studied abroad and are eager to share about their culture or a culture they have lived in. ICT's goals are to bring the world to our campus and community; break stereotypes; put not well known countries on the map; and develop a community that seeks to learn from each other.
+                        </p>
                     </div>
                 </div>
-                <div class="timeline-item" data-category="technical">
-                    <h3 class="timeline-title">Quality Control & Assurance Specialist</h3>
-                    <div class="timeline-subtitle">Black Diamond & Kizik | USA</div>
-                    <div class="timeline-date">2022 – 2023</div>
-                    <div class="timeline-content">
-                        <ul>
-                            <li>Conducted statistical analysis (SPC) of test data to identify root causes of production failures</li>
-                            <li>Contributed to 20% decrease in warranty claims</li>
-                            <li>Managed quality records system for all test and design documentation</li>
-                            <li>Assisted in fabrication of custom test fixtures for production monitoring</li>
-                        </ul>
+                <div class="card">
+                    <img src="CrossCultureMentor.jpg" alt="Cross Culture Mentor" class="card-image">
+                    <h3 class="card-title">Mentor, Coordinator</h3>
+                    <div class="card-content">
+                        <strong style="color: var(--radar-accent);">Cross Culture Mentor</strong>
+                        <p style="margin-top: 10px; line-height: 1.8;">
+                            CCM is a student leader who volunteers to assist new international students in adjusting academically, culturally and socially to the United States and the U of A. CCM will assist in educating new students about campus and community life, provide a connection to the University, and be able to answer many of the questions new students may have upon arrival and during their first semester in the U.S. CCMs also assist new students facing difficulties with communication, social relationships, academic expectations, and general cultural changes.
+                        </p>
                     </div>
                 </div>
-                <div class="timeline-item" data-category="leadership">
-                    <h3 class="timeline-title">Shift Lead / Operations Manager</h3>
-                    <div class="timeline-subtitle">AutoZone Inc. | USA</div>
-                    <div class="timeline-date">2018 – 2020</div>
-                    <div class="timeline-content">
-                        <ul>
-                            <li>Led all site operations as manager-on-duty, supervising and training team of 6</li>
-                            <li>Optimized daily workflows and implemented new inventory management process</li>
-                            <li>Drove data-informed process improvements by tracking and reporting operational KPIs</li>
-                        </ul>
+                <div class="card">
+                    <img src="RedCross.jpg" alt="NWA American Red Cross" class="card-image">
+                    <h3 class="card-title">Outreach Committee Chair</h3>
+                    <div class="card-content">
+                        <strong style="color: var(--radar-accent);">NWA American Red Cross</strong>
+                        <p style="margin-top: 10px; line-height: 1.8;">
+                            From blazes and blizzards to Floods and fires, the Arkansas Red Cross fulfills the American Red Cross mission to prevent and alleviate human suffering in the face of emergencies. For over 100 years, the Arkansas Red Cross has provided comfort, care and necessities to those affected by disaster.
+                        </p>
                     </div>
                 </div>
-                <div class="timeline-item" data-category="technical">
-                    <h3 class="timeline-title">Research Assistant</h3>
-                    <div class="timeline-subtitle">Brigham Young University / Linear Signal Inc. | UT</div>
-                    <div class="timeline-date">2010 – 2014</div>
-                    <div class="timeline-content">
-                        <ul>
-                            <li>Led design, HFSS simulation, and fabrication of high-efficiency DRA array for satellite communications</li>
-                            <li>Developed and validated model for characterizing low-loss materials for Raytheon</li>
-                            <li>Owned high-temperature testing process for radome design</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item" data-category="technical">
-                    <h3 class="timeline-title">Research Assistant</h3>
-                    <div class="timeline-subtitle">University of Arkansas | Fayetteville, AR</div>
-                    <div class="timeline-date">2006 – 2010</div>
-                    <div class="timeline-content">
-                        <ul>
-                            <li>Applied microwave imaging methods for non-contact object detection</li>
-                            <li>Gained extensive hands-on experience in fabrication and testing of RF devices</li>
-                        </ul>
+                <div class="card">
+                    <img src="StudentCouncil.jpg" alt="Graduate Student Society" class="card-image">
+                    <h3 class="card-title">Student Council Member</h3>
+                    <div class="card-content">
+                        <strong style="color: var(--radar-accent);">Graduate Student Society (BYU-GSS)</strong>
+                        <p style="margin-top: 10px; line-height: 1.8;">
+                            The Graduate Student Society (GSS) is proud to represent the graduate students of BYU. Our mission is to enrich the graduate student culture, enhance the BYU graduate student campus-wide voice, and encourage the presentation of scholarly and creative work.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -873,64 +870,27 @@
             <h2 class="section-title">EDUCATION & AWARDS</h2>
             <div class="content-grid">
                 <div class="card">
+                    <!-- <img src="BYU.jpg" alt="Brigham Young University" class="card-image"> -->
                     <h3 class="card-title">EDUCATION</h3>
                     <div class="card-content">
                         <p style="margin-bottom: 20px;">
                             <strong style="color: var(--radar-accent); font-size: 1.1rem;">PhD Studies, Electrical & Computer Engineering (Incomplete)</strong><br>
-                            Brigham Young University | Provo, UT<br>
-                            <em style="color: var(--text-secondary);">2010 - Incomplete</em>
+                            Brigham Young University | Provo, UT
                         </p>
                         <p style="margin-bottom: 20px;">
                             <strong style="color: var(--radar-accent); font-size: 1.1rem;">MS, Electrical Engineering</strong><br>
-                            University of Arkansas | Fayetteville, AR<br>
-                            <em style="color: var(--text-secondary);">2008 - 2010</em>
+                            University of Arkansas | Fayetteville, AR
                         </p>
-                        <p>
+                        <p style="margin-bottom: 20px;">
                             <strong style="color: var(--radar-accent); font-size: 1.1rem;">BS, Electrical Engineering & Mathematics</strong><br>
-                            University of Arkansas | Fayetteville, AR<br>
-                            <em style="color: var(--text-secondary);">2004 - 2008</em>
+                            University of Arkansas | Fayetteville, AR
                         </p>
                     </div>
                 </div>
                 <div class="card">
-                    <h3 class="card-title">AWARDS & SCHOLARSHIPS</h3>
+                    <h3 class="card-title">ACADEMIC SCHOLARSHIPS & AWARDS</h3>
                     <div class="card-content">
                         <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">🏆 PhD Fellowship - BYU</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">📡 MTT-S IEEE Scholarship</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">🎓 Research Grant - Honors College</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">⭐ FIES Academic Scholarship</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">⭐ MLK Academic Scholarship</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">🏅 ICT Outstanding Award</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">📜 Poster Stone Coop Scholarship</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--radar-grid);">🌟 National Recognition Awards</li>
-                            <li style="padding: 8px 0;">📋 Dean's List & Chancellor's List</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Awards & Scholarships Section -->
-        <section id="awards" class="section">
-            <h2 class="section-title">AWARDS & SCHOLARSHIPS</h2>
-            <div class="content-grid">
-                <div class="card">
-                    <h3 class="card-title">SCHOLARSHIPS</h3>
-                    <div class="card-content">
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🏆 PhD Fellowship</strong><br>
-                                <em style="color: var(--text-secondary);">Brigham Young University</em>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">📡 MTT-S IEEE Scholarship</strong><br>
-                                <em style="color: var(--text-secondary);">Microwave Theory and Techniques Society</em>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🎓 Research Grant - Honors College</strong><br>
-                                <em style="color: var(--text-secondary);">University of Arkansas</em>
-                            </li>
                             <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
                                 <strong style="color: var(--radar-accent);">⭐ FIES Academic Scholarship</strong><br>
                                 <em style="color: var(--text-secondary);">University of Arkansas</em>
@@ -940,30 +900,7 @@
                                 <em style="color: var(--text-secondary);">University of Arkansas</em>
                             </li>
                             <li style="padding: 10px 0;">
-                                <strong style="color: var(--radar-accent);">📜 Poster Stone Coop Scholarship</strong><br>
-                                <em style="color: var(--text-secondary);">University of Arkansas</em>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">AWARDS</h3>
-                    <div class="card-content">
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🏅 ICT Outstanding Award</strong><br>
-                                <em style="color: var(--text-secondary);">Information and Communication Technology</em>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🌟 National Recognition Awards</strong><br>
-                                <em style="color: var(--text-secondary);">Honors College</em>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">📋 Dean's List</strong><br>
-                                <em style="color: var(--text-secondary);">University of Arkansas</em>
-                            </li>
-                            <li style="padding: 10px 0;">
-                                <strong style="color: var(--radar-accent);">📋 Chancellor's List</strong><br>
+                                <strong style="color: var(--radar-accent);">📋 Dean's List & Chancellor's List</strong><br>
                                 <em style="color: var(--text-secondary);">University of Arkansas</em>
                             </li>
                         </ul>
@@ -974,54 +911,60 @@
         
         <!-- Honors Section -->
         <section id="honors" class="section">
-            <h2 class="section-title">HONORS</h2>
+            <h2 class="section-title">HONORS & RESEARCH AWARDS</h2>
             <div class="content-grid">
                 <div class="card">
-                    <h3 class="card-title">ACADEMIC HONORS</h3>
+                    <img src="TempleSqaure.jpg" alt="Research Awards" class="card-image">
+                    <h3 class="card-title">RESEARCH AWARDS</h3>
                     <div class="card-content">
                         <ul style="list-style: none; padding: 0;">
                             <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🏆 Dean's List</strong><br>
-                                <em style="color: var(--text-secondary);">Multiple semesters - University of Arkansas</em>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🏆 Chancellor's List</strong><br>
-                                <em style="color: var(--text-secondary);">Multiple semesters - University of Arkansas</em>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🌟 National Recognition Awards</strong><br>
-                                <em style="color: var(--text-secondary);">Honors College - University of Arkansas</em>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🎓 Honors College</strong><br>
-                                <em style="color: var(--text-secondary);">University of Arkansas</em>
-                            </li>
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🏛️ Ambassador of Good Will</strong><br>
-                                <em style="color: var(--text-secondary);">Arkansas State Governor</em>
-                            </li>
-                            <li style="padding: 10px 0;">
-                                <strong style="color: var(--radar-accent);">📚 Honor Societies</strong><br>
-                                <em style="color: var(--text-secondary);">Gamma Beta Phi, NSCS, HKN (Eta Kappa Nu)</em>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">PROFESSIONAL HONORS</h3>
-                    <div class="card-content">
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
-                                <strong style="color: var(--radar-accent);">🏅 ICT Outstanding Award</strong><br>
-                                <em style="color: var(--text-secondary);">Information and Communication Technology</em>
+                                <strong style="color: var(--radar-accent);">💼 PhD Fellowship</strong><br>
+                                <em style="color: var(--text-secondary);">Brigham Young University</em>
                             </li>
                             <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
                                 <strong style="color: var(--radar-accent);">📡 MTT-S IEEE Recognition</strong><br>
                                 <em style="color: var(--text-secondary);">Microwave Theory and Techniques Society</em>
                             </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🎓 Research Grant</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas Honors College</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">📜 Poster Stone Coop Award</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
                             <li style="padding: 10px 0;">
-                                <strong style="color: var(--radar-accent);">📜 Research Excellence</strong><br>
-                                <em style="color: var(--text-secondary);">Brigham Young University</em>
+                                <strong style="color: var(--radar-accent);">🌟 National Recognition Awards</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas Honors College</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="AR.jpg" alt="Honors" class="card-image">
+                    <h3 class="card-title">HONORS</h3>
+                    <div class="card-content">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🏅 International Culture Team - Outstanding Award</strong><br>
+                                <em style="color: var(--text-secondary);">Information and Communication Technology</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">🏛️ Ambassador of Good Will</strong><br>
+                                <em style="color: var(--text-secondary);">Arkansas State Governor</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">📚 Honor Society (Gamma Beta Phi)</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
+                                <strong style="color: var(--radar-accent);">📚 National Society of Collegiate Scholars (NSCS)</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong style="color: var(--radar-accent);">📚 Honor Society for Electrical Engineering (HKN)</strong><br>
+                                <em style="color: var(--text-secondary);">University of Arkansas</em>
                             </li>
                         </ul>
                     </div>
@@ -1038,11 +981,11 @@
                     <div class="card-content">
                         <p style="margin-bottom: 20px; line-height: 1.8;">
                             <strong style="color: var(--radar-accent); font-size: 1.1rem;">"High Efficiency Dielectric Resonator Antenna Array Feeds for Satellite Communications."</strong><br>
-                            <em style="color: var(--text-secondary);">IEEE Transactions on Antennas & Propagation (Communication Section), 2014.</em>
+                            <em style="color: var(--text-secondary);">IEEE Transactions on Antennas & Propagation (Communication Section).</em>
                         </p>
                         <p style="line-height: 1.8;">
                             <strong style="color: var(--radar-accent); font-size: 1.1rem;">"Broadband, High Efficiency Dielectric Resonator Antenna for Satellite Communications."</strong><br>
-                            <em style="color: var(--text-secondary);">IEEE APS-URSI Symposium, 2013.</em>
+                            <em style="color: var(--text-secondary);">IEEE APS-URSI Symposium.</em>
                         </p>
                     </div>
                 </div>
@@ -1051,11 +994,11 @@
                     <div class="card-content">
                         <p style="margin-bottom: 20px; line-height: 1.8;">
                             <strong style="color: var(--radar-accent); font-size: 1.1rem;">IEEE APS-URSI Symposium</strong><br>
-                            <em style="color: var(--text-secondary);">2013 - Presented research on broadband, high efficiency dielectric resonator antenna for satellite communications.</em>
+                            <em style="color: var(--text-secondary);">Presented research on broadband, high efficiency dielectric resonator antenna for satellite communications.</em>
                         </p>
                         <p style="line-height: 1.8;">
                             <strong style="color: var(--radar-accent); font-size: 1.1rem;">IEEE Transactions on Antennas & Propagation</strong><br>
-                            <em style="color: var(--text-secondary);">2014 - Published peer-reviewed article on high efficiency DRA array feeds for satellite communications.</em>
+                            <em style="color: var(--text-secondary);">Published peer-reviewed article on high efficiency DRA array feeds for satellite communications.</em>
                         </p>
                     </div>
                 </div>
@@ -1072,17 +1015,17 @@
                         <ul style="list-style: none; padding: 0;">
                             <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
                                 <strong style="color: var(--radar-accent);">👔 Shift Lead / Operations Manager</strong><br>
-                                <em style="color: var(--text-secondary);">AutoZone Inc. (2018-2020)</em><br>
+                                <em style="color: var(--text-secondary);">AutoZone Inc.</em><br>
                                 <span style="color: var(--text-secondary); font-size: 0.9rem;">Led all site operations as manager-on-duty, supervising and training a team of 6. Optimized daily workflows and implemented new inventory management processes.</span>
                             </li>
                             <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
                                 <strong style="color: var(--radar-accent);">🔬 Research Team Lead</strong><br>
-                                <em style="color: var(--text-secondary);">Brigham Young University (2010-2014)</em><br>
+                                <em style="color: var(--text-secondary);">Brigham Young University</em><br>
                                 <span style="color: var(--text-secondary); font-size: 0.9rem;">Led design, simulation, and fabrication of high-efficiency DRA array for satellite communications. Managed research projects and collaborated with industry partners.</span>
                             </li>
                             <li style="padding: 10px 0;">
                                 <strong style="color: var(--radar-accent);">📊 Quality Control Specialist</strong><br>
-                                <em style="color: var(--text-secondary);">Black Diamond & Kizik (2022-2023)</em><br>
+                                <em style="color: var(--text-secondary);">Black Diamond & Kizik</em><br>
                                 <span style="color: var(--text-secondary); font-size: 0.9rem;">Managed quality records system and conducted statistical analysis to identify root causes of production failures, contributing to 20% decrease in warranty claims.</span>
                             </li>
                         </ul>
@@ -1094,22 +1037,22 @@
                         <ul style="list-style: none; padding: 0;">
                             <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
                                 <strong style="color: var(--radar-accent);">🌍 Presenter, Teacher, Mentor</strong><br>
-                                <em style="color: var(--text-secondary);">International Culture Team (2005-2010)</em><br>
+                                <em style="color: var(--text-secondary);">International Culture Team</em><br>
                                 <span style="color: var(--text-secondary); font-size: 0.9rem;">Dynamic team bringing the world to campus, breaking stereotypes, and developing a community that seeks to learn from each other.</span>
                             </li>
                             <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
                                 <strong style="color: var(--radar-accent);">🤝 Mentor, Coordinator</strong><br>
-                                <em style="color: var(--text-secondary);">Cross Culture Mentor (2007-2010)</em><br>
+                                <em style="color: var(--text-secondary);">Cross Culture Mentor</em><br>
                                 <span style="color: var(--text-secondary); font-size: 0.9rem;">Assisted new international students in adjusting academically, culturally, and socially to the United States and the University of Arkansas.</span>
                             </li>
                             <li style="padding: 10px 0; border-bottom: 1px solid var(--radar-grid);">
                                 <strong style="color: var(--radar-accent);">❤️ Outreach Committee Chair</strong><br>
-                                <em style="color: var(--text-secondary);">NWA American Red Cross (2009)</em><br>
+                                <em style="color: var(--text-secondary);">NWA American Red Cross</em><br>
                                 <span style="color: var(--text-secondary); font-size: 0.9rem;">Helped fulfill the American Red Cross mission to prevent and alleviate human suffering in the face of emergencies.</span>
                             </li>
                             <li style="padding: 10px 0;">
                                 <strong style="color: var(--radar-accent);">📡 Student Council Member</strong><br>
-                                <em style="color: var(--text-secondary);">Graduate Student Society (BYU-GSS) (2010)</em><br>
+                                <em style="color: var(--text-secondary);">Graduate Student Society (BYU-GSS)</em><br>
                                 <span style="color: var(--text-secondary); font-size: 0.9rem;">Represented graduate students, enriched graduate student culture, and encouraged presentation of scholarly and creative work.</span>
                             </li>
                         </ul>
