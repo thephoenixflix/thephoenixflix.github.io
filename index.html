@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Phoenix Flix - Satellite Communications | Interactive CV</title>
     
+<!-- ===============================================================================
+🐦 ::: PhoenixFlix - Multi-Purpose Movies & Christian Streaming Platform :::
+🔥 with dual database architecture, WebAuthn authentication, and family-friendly streaming experience.
+===============================================================================
+© 2025 ThePhoenixFlix - Ben Tran
+(https://github.com/ThePhoenixFlix)
+Email: ThePhoenixFlix@gmail.com
+Website: https://bit.ly/ThePhoenixFlix
+===============================================================================-->
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://thephoenixflix.github.io/">
     <meta property="og:title" content="The Phoenix Flix - Satellite Communications">
     <meta property="og:description" content="Interactive CV showcasing expertise in Satellite Communications, RF & Microwave Engineering with radar and satellite tracking visualizations.">
-    <meta property="og:image" content="https://thephoenixflix.github.io/moutains.jpg">
-    <meta property="og:image:secure_url" content="https://thephoenixflix.github.io/moutains.jpg">
+    <meta property="og:image" content="https://thephoenixflix.github.io/sky.jpg">
+    <meta property="og:image:secure_url" content="https://thephoenixflix.github.io/sky.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -24,7 +34,7 @@
     <meta name="twitter:url" content="https://thephoenixflix.github.io/">
     <meta name="twitter:title" content="The Phoenix Flix - Satellite Communications">
     <meta name="twitter:description" content="Interactive CV showcasing expertise in Satellite Communications, RF & Microwave Engineering with radar and satellite tracking visualizations.">
-    <meta name="twitter:image" content="https://thephoenixflix.github.io/moutains.jpg">
+    <meta name="twitter:image" content="https://thephoenixflix.github.io/sky.jpg">
     <meta name="twitter:image:alt" content="Mountains - The Phoenix Flix">
     
     <!-- Additional Meta Tags -->
@@ -633,6 +643,152 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Footer Styles from styles.css */
+        footer {
+            background-color: #232926; /* var(--primaryColor) */
+            border-top: 2px solid #666666;
+            padding: 1rem 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ff6b35, #ffd700, #ff6b35, transparent);
+            animation: footer-glow 3s ease-in-out infinite alternate;
+        }
+
+        .footer-logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #ff6b35;
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo-img:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+        }
+
+        .footer-title {
+            font-size: 1.8rem;
+            margin: 0 0 0.3rem 0;
+            font-family: 'Permanent Marker', cursive;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.4);
+        }
+
+        .footer-title .phoenix-text,
+        .copyright-text .phoenix-text {
+            color: #ff0000 !important;
+            font-weight: bold !important;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.4) !important;
+        }
+
+        .footer-title .flix-text,
+        .copyright-text .flix-text {
+            color: #1e3a8a !important;
+            font-weight: bold !important;
+            font-style: italic !important;
+            text-shadow: 0 0 8px rgba(30, 58, 138, 0.4) !important;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .footer-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .footer-link:hover {
+            background: rgba(255, 107, 53, 0.2);
+            border-color: #ff6b35;
+            transform: translateX(3px);
+            box-shadow: 0 0 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .link-icon {
+            font-size: 1.1rem;
+        }
+
+        .copyright-text {
+            color: #cccccc;
+            font-size: 0.85rem;
+            margin: 0.2rem 0;
+            line-height: 1.3;
+        }
+
+        .footer-disclaimer {
+            margin-top: 1rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            text-align: center;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .handwritten-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            color: #ffd700;
+            margin: 0.3rem 0;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+            animation: handwritten-float 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes footer-glow {
+            0% { opacity: 0.5; transform: scaleX(0.8); }
+            100% { opacity: 1; transform: scaleX(1); }
+        }
+
+        @keyframes handwritten-float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-3px); }
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+            .footer-brand {
+                margin-bottom: 1rem;
+            }
+            .footer-links {
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -681,7 +837,7 @@
             <h2 class="section-title">MISSION OVERVIEW</h2>
             <div class="content-grid">
                 <div class="card">
-                    <img src="moutains.jpg" alt="Professional Summary" class="card-image">
+                    <img src="sky.jpg" alt="Professional Summary" class="card-image">
                     <h3 class="card-title">PROFESSIONAL SUMMARY</h3>
                     <div class="card-content">
                         PhD-level Electrical Engineer with extensive research in RF and satellite communications, 
@@ -898,8 +1054,7 @@
             <h2 class="section-title">EDUCATION & AWARDS</h2>
             <div class="content-grid">
                 <div class="card">
-                    <!-- <img src="BYU.jpg" alt="Brigham Young University" class="card-image"> -->
-                    <h3 class="card-title">EDUCATION</h3>
+                <h3 class="card-title">EDUCATION</h3>
                     <div class="card-content">
                         <p style="margin-bottom: 20px;">
                             <strong style="color: var(--radar-accent); font-size: 1.1rem;">PhD Studies, Electrical & Computer Engineering (Incomplete)</strong><br>
@@ -940,12 +1095,9 @@
         <!-- Honors Section -->
         <section id="honors" class="section">
             <h2 class="section-title">HONORS & RESEARCH AWARDS</h2>
-            <!-- <div style="text-align: center; margin-bottom: 30px;">
-                <img src="TempleSqaure.jpg" alt="Salt Lake Temple with Moroni Angel" class="card-image" style="max-width: 100%; max-height: 400px; width: auto; height: auto; border: 2px solid var(--radar-green); box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);">
-            </div> -->
             <div class="content-grid">
                 <div class="card">
-                    <img src="TempleSqaure.jpg" alt="Research Awards" class="card-image">
+                    <img src="Temple.jpg" alt="Research Awards" class="card-image">
                     <h3 class="card-title">RESEARCH AWARDS</h3>
                     <div class="card-content">
                         <ul style="list-style: none; padding: 0;">
@@ -1657,5 +1809,45 @@
             observer.observe(card);
         });
     </script>
+
+    <footer>
+        <div class="footer-content" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; width: 100%;"> 
+            <div class="footer-brand" style="display: flex; align-items: center; gap: 0.5rem;">
+                <div class="footer-logo">
+                    <a href="https://phoenixflix.vercel.app" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <img src="PhoenixFlix.jpeg" alt="PhoenixFlix Logo" class="footer-logo-img">
+                    </a>
+                </div>
+                <div class="footer-brand-text">
+                    <h3 class="footer-title">
+                        <a href="https://phoenixflix.vercel.app" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                        <span class="phoenix-text">Phoenix</span><span class="flix-text">Flix</span>
+                        </a>
+                    </h3>
+                </div>
+            </div>
+             
+            <div class="footer-links">
+                <div class="footer-section">
+                    <a href="https://github.com/ThePhoenixFlix" target="_blank" rel="noopener noreferrer" class="footer-link">
+                        <span class="link-icon">🐦</span> https://GitHub.com/ThePhoenixFlix
+                    </a>
+                </div>
+                
+                <div class="footer-section">
+                    <a href="https://phoenixflix.vercel.app" target="_blank" rel="noopener noreferrer" class="copyright-text" style="text-decoration: none; color: inherit;">
+                        © 2025 The<span class="phoenix-text">Phoenix</span><span class="flix-text">Flix</span> Ben Tran. All rights reserved.
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Handwritten Disclaimer -->
+        <div class="footer-disclaimer">
+            <p class="handwritten-text" style="font-size: 0.9rem;  font-style: italic ; color: #887fff; animation: none;">"To see the world, things dangerous to come to, to see behind walls, draw closer, to find each other, and to feel. That is the purpose of life."</p>
+            <p class="handwritten-text">– Walter Mitty, The Secret Life of Walter Mitty (2013)</p>
+        </div>
+    </footer>
+
 </body>
 </html>
