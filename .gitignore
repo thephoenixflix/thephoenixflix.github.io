@@ -9,6 +9,7 @@ desktop.ini
 *.swp
 *.swo
 *~
+*.md 
 
 # Temporary files
 *.tmp
