@@ -1,0 +1,14 @@
+{
+  "name": "thephoenixflix-cv",
+  "version": "1.0.0",
+  "description": "Interactive CV for The Phoenix Flix - Satellite Communications",
+  "scripts": {
+    "setup": "npm install esbuild --save-dev",
+    "build": "esbuild cv-script.js --minify --outfile=cv-script.min.js"
+  },
+  "author": "The Phoenix Flix",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.27.1"
+  }
+}
